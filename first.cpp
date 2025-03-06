@@ -10268,69 +10268,69 @@ int arr[3]={7,5,1};
 // // countleaf(root,summ);
 // //     cout<<summ;
 // //     return 0;
-class node {
-  public:
-      int data;
-      node* left;
-      node* right;
+// class node {
+//   public:
+//       int data;
+//       node* left;
+//       node* right;
   
-      node(int value) {
-          data = value;
-          left = right = nullptr;
-      }
-  };
+//       node(int value) {
+//           data = value;
+//           left = right = nullptr;
+//       }
+//   };
   
-  node* buildTree() {
-    cout << "Enter the root: ";
-    int x;
-    cin >> x;
+//   node* buildTree() {
+//     cout << "Enter the root: ";
+//     int x;
+//     cin >> x;
 
-    if (x == 0) return nullptr; // If the user enters -1, return NULL
+//     if (x == 0) return nullptr; // If the user enters -1, return NULL
 
-    node* root = new node(x);
-    queue<node*> q;
-    q.push(root);
+//     node* root = new node(x);
+//     queue<node*> q;
+//     q.push(root);
 
-    while (!q.empty()) {
-        node* temp = q.front();
-        q.pop();
+//     while (!q.empty()) {
+//         node* temp = q.front();
+//         q.pop();
 
-        int first, second;
-        cout << "Enter left child of " << temp->data << " (-1 for NULL): ";
-        cin >> first;
-        if (first != 0) {
-            temp->left = new node(first);
-            q.push(temp->left);
-        }
+//         int first, second;
+//         cout << "Enter left child of " << temp->data << " (-1 for NULL): ";
+//         cin >> first;
+//         if (first != 0) {
+//             temp->left = new node(first);
+//             q.push(temp->left);
+//         }
 
-        cout << "Enter right child of " << temp->data << " (-1 for NULL): ";
-        cin >> second;
-        if (second != 0) {
-            temp->right = new node(second);
-            q.push(temp->right);
-        }
-    }
-    return root;
-}
-  void nono_leaf(node* root,int &count){
-    if(root==NULL){
-      return;
-    }
-    count++;
-    if(root->left==NULL && root->right==NULL){
-      count--;
-      return;
-    }
-    nono_leaf(root->left,count);
-    nono_leaf(root->right,count);
-  }
-int main(){
-  node* root = buildTree();
-  int count=0;
-  // int summ=0;
-  // cout<<sum_nodex(root,sum);
-  // countleaf(root,summ);
-  // cout<<summ;
-  nono_leaf(root,count);
-  cout<<count;
-}
+//         cout << "Enter right child of " << temp->data << " (-1 for NULL): ";
+//         cin >> second;
+//         if (second != 0) {
+//             temp->right = new node(second);
+//             q.push(temp->right);
+//         }
+//     }
+//     return root;
+// }
+//   void nono_leaf(node* root,int &count){
+//     if(root==NULL){
+//       return;
+//     }
+//     count++;
+//     if(root->left==NULL && root->right==NULL){
+//       count--;
+//       return;
+//     }
+//     nono_leaf(root->left,count);
+//     nono_leaf(root->right,count);
+//   }
+// int main(){
+//   node* root = buildTree();
+//   int count=0;
+//   // int summ=0;
+//   // cout<<sum_nodex(root,sum);
+//   // countleaf(root,summ);
+//   // cout<<summ;
+//   nono_leaf(root,count);
+//   cout<<count;
+// }
