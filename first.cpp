@@ -10158,19 +10158,6 @@ int arr[3]={7,5,1};
 // node* root=binary_tree();
 //   total(root,count);
 // }
-
-class node {
-public:
-    int data;
-    node* left;
-    node* right;
-
-    node(int value) {
-        data = value;
-        left = right = nullptr;
-    }
-};
-
 // // void total(node* root, int &count){
 // //   if(root==NULL){
 // //     return;
@@ -10235,15 +10222,15 @@ public:
 // //   }
 // // }
 
-// // void countleaf(node* root, int &summ){
-// //   if(root==NULL){
-// //     summ++;
-// //     return;
-// //   }
+// void countleaf(node* root, int &summ){
+//   if(root==NULL){
+//     summ++;
+//     return;
+//   }
 
-// // countleaf(root->left,summ);
-// // countleaf(root->right,summ);
-// // }
+// countleaf(root->left,summ);
+// countleaf(root->right,summ);
+// }
 // void countleaf(node* root, int &summ) {
 //     if (root == NULL) {
 //         return;  // Do not count NULL nodes
@@ -10259,7 +10246,41 @@ public:
 //     countleaf(root->right, summ);
 // }
 
-node* buildTree() {
+// int sum_nodex(node* root,int &sum){
+  
+//   if(root==NULL){
+//     return 0;
+//   }
+//   sum+=root->data;
+//   sum_nodex(root->left,sum);
+//   sum_nodex(root->right,sum);
+//   if(root->left==NULL && root->right==NULL){
+//     cout<<"sum of nodes "<<sum<<endl;
+//   }
+// }
+// // int main() {
+// //     node* root = buildTree();
+// //     int sum=0;
+// //     int summ=0;
+// //     total(root);
+// //     sum_nodex(root,sum);
+// //     cout<<sum<<endl;
+// // countleaf(root,summ);
+// //     cout<<summ;
+// //     return 0;
+class node {
+  public:
+      int data;
+      node* left;
+      node* right;
+  
+      node(int value) {
+          data = value;
+          left = right = nullptr;
+      }
+  };
+  
+  node* buildTree() {
     cout << "Enter the root: ";
     int x;
     cin >> x;
@@ -10291,31 +10312,25 @@ node* buildTree() {
     }
     return root;
 }
-// int sum_nodex(node* root,int &sum){
-  
-//   if(root==NULL){
-//     return 0;
-//   }
-//   sum+=root->data;
-//   sum_nodex(root->left,sum);
-//   sum_nodex(root->right,sum);
-//   if(root->left==NULL && root->right==NULL){
-//     cout<<"sum of nodes "<<sum<<endl;
-//   }
-// }
-// // int main() {
-// //     node* root = buildTree();
-// //     int sum=0;
-// //     int summ=0;
-// //     total(root);
-// //     sum_nodex(root,sum);
-// //     cout<<sum<<endl;
-// // countleaf(root,summ);
-// //     cout<<summ;
-// //     return 0;
-
-// int main(){
-//   node* root = buildTree();
-//   int sum=0;
-//   cout<<sum_nodex(root,sum);
-// }
+  void nono_leaf(node* root,int &count){
+    if(root==NULL){
+      return;
+    }
+    count++;
+    if(root->left==NULL && root->right==NULL){
+      count--;
+      return;
+    }
+    nono_leaf(root->left,count);
+    nono_leaf(root->right,count);
+  }
+int main(){
+  node* root = buildTree();
+  int count=0;
+  // int summ=0;
+  // cout<<sum_nodex(root,sum);
+  // countleaf(root,summ);
+  // cout<<summ;
+  nono_leaf(root,count);
+  cout<<count;
+}
