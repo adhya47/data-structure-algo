@@ -156,15 +156,15 @@ void print(Node* root) {
 // // cout<<sum;
 //     return 0;
 // }
-int main(){
-    int pre[]={8,5,1,7,10,12};
-    Node* root = NULL;
-    int maxi=INT_MIN;
-    for (int i = 0; i < 6; i++) {
-       maxi=max(maxi,pre[i]);  // Corrected function call
-    }
-    for (int i = 0; i < 6; i++) {
-         root = creation(root, pre[i],maxi);  // Corrected function call
-     }
-     print(root);
-}
+// int main(){
+//     int pre[]={8,5,1,7,10,12};
+//     Node* root = NULL;
+//     int maxi=INT_MIN;
+//     for (int i = 0; i < 6; i++) {
+//        maxi=max(maxi,pre[i]);  // Corrected function call
+//     }
+//     for (int i = 0; i < 6; i++) {
+//          root = creation(root, pre[i],maxi);  // Corrected function call
+//      }
+//      print(root);
+// }
