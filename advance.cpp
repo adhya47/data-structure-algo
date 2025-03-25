@@ -10,39 +10,39 @@
 #include <climits>
 using namespace std;
 
-#include <iostream>  // For input/output operations
-using namespace std;
+// #include <iostream>  // For input/output operations
+// using namespace std;
 
-// Definition of Node structure
-#include <iostream>
-using namespace std;
+// // Definition of Node structure
+// #include <iostream>
+// using namespace std;
 
-// Definition of Node structure
-class Node {
-public:
-    int data;
-    Node* left;
-    Node* right;
+// // Definition of Node structure
+// class Node {
+// public:
+//     int data;
+//     Node* left;
+//     Node* right;
 
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};
+//     Node(int val) {
+//         data = val;
+//         left = right = NULL;
+//     }
+// };
 
-// Function to insert a node into the BST
-Node* creation(Node* root, int &x,int &maxi) {
-    if (!root||root->data == maxi) {
-        Node* temp=new Node(x);
-        return temp;
-    }
-    if (x < root->data) {
-        root->left = creation(root->left, x,maxi);
-    } else {
-        root->right = creation(root->right, x,maxi);
-    }
-    return root;
-}
+// // Function to insert a node into the BST
+// Node* creation(Node* root, int &x,int &maxi) {
+//     if (!root||root->data == maxi) {
+//         Node* temp=new Node(x);
+//         return temp;
+//     }
+//     if (x < root->data) {
+//         root->left = creation(root->left, x,maxi);
+//     } else {
+//         root->right = creation(root->right, x,maxi);
+//     }
+//     return root;
+// }
 
 // Function to delete a node from BST
 // Node* deleteNode(Node* root, int x) {
@@ -84,12 +84,12 @@ Node* creation(Node* root, int &x,int &maxi) {
 // }
 
 // Function to print the BST (In-order Traversal)
-void print(Node* root) {
-    if (!root) return;
-    cout << root->data << " ";
-    print(root->left);
-    print(root->right);
-}
+// void print(Node* root) {
+//     if (!root) return;
+//     cout << root->data << " ";
+//     print(root->left);
+//     print(root->right);
+// }
 // bool check_bst(Node* root,int &prev){
 // if(!root){return 1;}
 // check_bst(root->left,prev);
@@ -169,22 +169,178 @@ void print(Node* root) {
 //      print(root);
 // }
 //binary search trees
-int height(Node* root) {
-    if (!root) return 0;
+// int height(Node* root) {
+//     if (!root) return 0;
     
-    queue<Node*> q;
-    q.push(root);
-    int height = 0;
+//     queue<Node*> q;
+//     q.push(root);
+//     int height = 0;
     
-    while (!q.empty()) {
-        int size = q.size();
-        for (int i = 0; i < size; i++) {
-            Node* node = q.front();
-            q.pop();
-            if (node->left) q.push(node->left);
-            if (node->right) q.push(node->right);
-        }
-        height++;
+//     while (!q.empty()) {
+//         int size = q.size();
+//         for (int i = 0; i < size; i++) {
+//             Node* node = q.front();
+//             q.pop();
+//             if (node->left) q.push(node->left);
+//             if (node->right) q.push(node->right);
+//         }
+//         height++;
+//     }
+//     return height;
+// }
+// void sunset(int arr[],int n,int index,vector<vector<int>>& ans,vector<int>& temp){
+//     if(index==n){
+//         ans.push_back(temp);
+//         return;
+//     }
+//     sunset(arr,n,index+1,ans,temp);
+//     // sum+=arr[index];
+//     temp.push_back(arr[index]);
+// if(index<n && arr[index]==arr[index+1]){
+//     index++;
+// }
+//     sunset(arr,n,index+1,ans,temp);
+//     // sum=0;
+//     temp.pop_back();
+// }
+// // int main(){
+// //     int arr[]={2, 2};
+// //     int n=2;
+// //     int index=0;
+// //     vector<vector<int>>ans;
+// //     vector<int>temp;
+// //     // int sum=0;
+// //     sunset(arr,n,index,ans,temp);
+// //    for(int i=0;i<ans.size();i++){
+// //     for(int j=0;i<arr[0].size();i++){
+// //         cout<<arr[i][j]<<endl;
+// //     }
+// //    }
+// // }
+// int main() {
+//     vector<int> arr = {2, 2};  // Convert array to vector
+//     int n = 2;
+//     int index = 0;
+//     vector<vector<int>> ans;
+//     vector<int> temp;
+
+//     sort(arr.begin(), arr.end()); // Sort to handle duplicates
+//     sunset(arr, n, index, ans, temp);
+
+//     // Printing the subsets
+//     cout << "Subsets:\n";
+//     for (int i = 0; i < ans.size(); i++) {
+//         cout << "[";
+//         for (int j = 0; j < ans[i].size(); j++) {
+//             cout << ans[i][j];
+//             if (j < ans[i].size() - 1) cout << ", ";
+//         }
+//         cout << "]\n";
+//     }}
+// void sunset(vector<int>& arr, int n, int index, vector<vector<int>>& ans, vector<int>& temp) {
+//     if (index == n) {
+//         ans.push_back(temp);
+//         return;
+//     }
+
+//     // **Include the current element**
+    
+//     sunset(arr, n, index + 1, ans, temp);
+//     temp.push_back(arr[index]);
+//     // **Skip all duplicate elements**
+//     while (index < n && arr[index] == arr[index + 1]) {
+//         index++;
+//     }
+
+//     // **Exclude the current element**
+//     sunset(arr, n, index + 1, ans, temp);
+//     temp.pop_back(); // **Backtrack**
+// }
+// void sunset(vector<int>& arr, int n, int index, vector<vector<int>>& ans, vector<int>& temp) {
+//     if (index == n) {
+//         ans.push_back(temp);
+//         return;
+//     }
+
+//     // **Exclude the current element**
+//     sunset(arr, n, index + 1, ans, temp);
+
+//     // **Include the current element**
+//     temp.push_back(arr[index]);
+
+//     // **Fix: Skip all duplicate elements**
+//     while (index + 1 < n && arr[index] == arr[index + 1]) {
+//         index++;
+//     }
+
+//     sunset(arr, n, index + 1, ans, temp);
+//     temp.pop_back(); // **Backtrack**
+// }
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// void sunset(vector<int>& arr, int n, int index, vector<vector<int>>& ans, vector<int>& temp) {
+//     if (index == n) {
+//         ans.push_back(temp);
+//         return;
+//     }
+
+//     // **Exclude the current element**
+//     sunset(arr, n, index + 1, ans, temp);
+
+//     // **Include the current element**
+//     temp.push_back(arr[index]);
+//     sunset(arr, n, index + 1, ans, temp);
+//     temp.pop_back(); // **Backtrack**
+
+//     // **Skip duplicates after including the current element**
+//     while (index + 1 < n && arr[index] == arr[index + 1]) {
+//         index++;
+//     }
+
+
+void sunset(vector<int>& arr, int n, int index, vector<vector<int>>& ans, vector<int>& temp) {
+    if (index == n) {
+        ans.push_back(temp);
+        return;
     }
-    return height;
+
+    // Include the current element
+    temp.push_back(arr[index]);
+    sunset(arr, n, index + 1, ans, temp);
+    temp.pop_back(); // Backtrack
+
+    // Skip duplicates before excluding
+    while (index + 1 < n && arr[index] == arr[index + 1]) {
+        index++;
+    }
+
+    // Exclude the current element (and all its duplicates)
+    sunset(arr, n, index + 1, ans, temp);
 }
+
+ int main() {
+        vector<int> arr = {2, 2}; // Using vector instead of array
+        int n = 2;
+        int index = 0;
+        vector<vector<int>> ans;
+        vector<int> temp;
+    
+        sort(arr.begin(), arr.end()); // **Sorting to handle duplicates**
+        sunset(arr, n, index, ans, temp);
+    
+        // **Printing the subsets**
+        cout << "Subsets:\n";
+        for (int i = 0; i < ans.size(); i++) {
+            cout << "[";
+            for (int j = 0; j < ans[i].size(); j++) {
+                cout << ans[i][j];
+                if (j < ans[i].size() - 1) cout << ", ";
+            }
+            cout << "]\n";
+        }
+    
+        return 0;
+    }
