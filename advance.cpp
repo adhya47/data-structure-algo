@@ -301,46 +301,85 @@ using namespace std;
 //     }
 
 
-void sunset(vector<int>& arr, int n, int index, vector<vector<int>>& ans, vector<int>& temp) {
-    if (index == n) {
-        ans.push_back(temp);
-        return;
-    }
+// void sunset(vector<int>& arr, int n, int index, vector<vector<int>>& ans, vector<int>& temp) {
+//     if (index == n) {
+//         ans.push_back(temp);
+//         return;
+//     }
 
-    // Include the current element
-    temp.push_back(arr[index]);
-    sunset(arr, n, index + 1, ans, temp);
-    temp.pop_back(); // Backtrack
+//     // Include the current element
+//     temp.push_back(arr[index]);
+//     sunset(arr, n, index + 1, ans, temp);
+//     temp.pop_back(); // Backtrack
 
-    // Skip duplicates before excluding
-    while (index + 1 < n && arr[index] == arr[index + 1]) {
-        index++;
-    }
+//     // Skip duplicates before excluding
+//     while (index + 1 < n && arr[index] == arr[index + 1]) {
+//         index++;
+//     }
 
-    // Exclude the current element (and all its duplicates)
-    sunset(arr, n, index + 1, ans, temp);
-}
+//     // Exclude the current element (and all its duplicates)
+//     sunset(arr, n, index + 1, ans, temp);
+// }
 
- int main() {
-        vector<int> arr = {2, 2}; // Using vector instead of array
-        int n = 2;
-        int index = 0;
-        vector<vector<int>> ans;
-        vector<int> temp;
+//  int main() {
+//         vector<int> arr = {2, 2}; // Using vector instead of array
+//         int n = 2;
+//         int index = 0;
+//         vector<vector<int>> ans;
+//         vector<int> temp;
     
-        sort(arr.begin(), arr.end()); // **Sorting to handle duplicates**
-        sunset(arr, n, index, ans, temp);
+//         sort(arr.begin(), arr.end()); // **Sorting to handle duplicates**
+//         sunset(arr, n, index, ans, temp);
     
-        // **Printing the subsets**
-        cout << "Subsets:\n";
-        for (int i = 0; i < ans.size(); i++) {
-            cout << "[";
-            for (int j = 0; j < ans[i].size(); j++) {
-                cout << ans[i][j];
-                if (j < ans[i].size() - 1) cout << ", ";
+//         // **Printing the subsets**
+//         cout << "Subsets:\n";
+//         for (int i = 0; i < ans.size(); i++) {
+//             cout << "[";
+//             for (int j = 0; j < ans[i].size(); j++) {
+//                 cout << ans[i][j];
+//                 if (j < ans[i].size() - 1) cout << ", ";
+//             }
+//             cout << "]\n";
+//         }
+    
+//         return 0;
+//     }
+// int main() {
+//     vector<int> v = {1, 4, 7, 8, 5};  // Initializing a vector with values
+
+//     // Using a range-based for loop to print the elements
+//     for (auto nums : v) {
+//         cout << nums << " ";
+//     }
+//     cout << endl;  // Printing a newline after the loop
+
+//     return 0;
+// }
+int main(){
+    int arr[]={7,1,4,2,5};
+    int n=5;
+    int count=0;
+    int start=0;
+    while(start<n){
+        if(arr[0]>arr[n-1]){
+            if(arr[start]<arr[start+1]){
+                start++;
+            }else{
+     count+=1;
+     start++;
             }
-            cout << "]\n";
-        }
-    
-        return 0;
+        }else{
+                if(arr[start]<arr[start+1]){
+                    start++;
+                }else{
+         count+=1;start++;
+                }
     }
+  
+}
+if(count>1){
+    cout<<"false";
+}else{
+    cout<<"true";
+}
+}
